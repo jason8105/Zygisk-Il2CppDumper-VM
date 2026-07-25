@@ -10,6 +10,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    # Required permissions for generating attestations
+    permissions:
+      id-token: write
+      contents: read
+      attestations: write
+      
     steps:
       - uses: actions/checkout@v4
 
@@ -26,8 +33,13 @@ jobs:
           sed -i "s/com.game.packagename/${{ github.event.inputs.package_name }}/g" module/src/main/cpp/game.h
           ./gradlew :module:assembleRelease
 
+      # Generate the cryptographic attestation
+      - name: Generate artifact attestation
+        uses: actions/attest@v4
+        with:
+          subject-path: 'out/magisk_module_release/**/*'
+
       - uses: actions/upload-artifact@v4
         with:
           name: zygisk-il2cppdumper
           path: out/magisk_module_release/
-          
