@@ -1,0 +1,9 @@
+ext {
+    moduleLibraryName = "dumpthatunity"
+    magiskModuleId = "dumpthatunity"
+    moduleName = "Il2CppDumper"
+    moduleAuthor = "ZEFF"
+    moduleDescription = "Il2CppDumper Zygisk version."
+    moduleVersion = "v1.0.0"
+    moduleVersionCode = 1
+}
