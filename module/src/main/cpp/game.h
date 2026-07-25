@@ -7,7 +7,7 @@
 #define ZYGISK_IL2CPPDUMPER_GAME_H
 
 bool automaticDumpWithSymbols = true;
-#define GamePackageName "com.your.unitygame"
+#define GamePackageName "com.kiloo.subwaysurf"
 #define TargetLibName "libil2cpp.so"
 
 #endif //ZYGISK_IL2CPPDUMPER_GAME_H
